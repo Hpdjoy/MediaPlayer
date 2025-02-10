@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      text-decoration: none;
+      list-style: none;
+      
+}
+html{
+      font-family: "M PLUS Rounded 1c", serif;
+      background-color: #333;
+}
+
+header{
+      
+      color: white;
+      height: 5rem;
+      ;
+      
+}
+.titlebar{
+      height: 50%;
+      /* outline: 2px solid blue; */
+      display: flex;
+      align-items: center;
+      gap:0.5rem;
+}
+.title-img{
+      height: 60%;
+      margin-left: 1rem;
+}
+.title{
+      font-size: 1rem;
+}
+.menubar{
+      display: flex;
+      gap: 1rem;
+      margin-left: 1rem;
+      align-items: center;
+      height: 50%;
+      /* outline: 2px solid green; */
+}
+
+.menu{
+      position: relative;
+
+}
+.menu-items{
+      display: none;
+      background-color: rgb(33, 33, 33);
+      position: absolute;
+      top: 0px; 
+      width: 7rem;
+}
+.menu-btn{
+      border-radius: 1px;
+      padding: 3.5px;
+}
+.menu-btn:hover, li:hover {
+      background-color: royalblue;
+}
+.menu:hover .menu-items{
+      display: block;
+}
+
+#videoInput{
+      display: none;
+}
+
+li{
+      padding: 0.25rem;
+}
+.main{ 
+      display: flex;    
+      justify-content: center;
+      align-items: center;
+      background-color: black;
+      height: calc(100vh - 8rem);
+      /* outline: 2px solid red; */
+      margin: 1px;
+      
+}
+.video{
+     
+      height: 100%;
+
+}
+.toast{
+      position:fixed; 
+      top: 95px;
+      right: 25px;
+      display: none;
+      background-color: rgba(0, 0, 0, 0.318);
+      color: white;
+      padding: 0.5rem;
+      font-size: 2rem;
+      z-index: 1;
+}
+.footer{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      /* margin-left: 10px; */
+      gap: 1rem;
+      align-items: center;
+      height: 3rem;
+      color: white;
+      font-size: 1rem;
+      outline: 2px solid yellow;
+}
+i:active{
+      height: 10px;
+      width: auto;
+      
+}

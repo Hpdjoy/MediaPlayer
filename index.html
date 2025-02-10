@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <title>VLC MEDIA PLAYER</title>
+      <link rel="stylesheet" href="./css/style.css">
+      <link rel="stylesheet" href="./css/reset.css">
+</head>
+<body>
+      <header>
+            <div class="titlebar">
+                  <img src="./images/VLC.png" alt="logo" class="title-img">
+                  <h1 class="title">VLC media player</h1>
+            </div>
+            <div class="menubar">
+                  <div class="menu">
+                        <div class="menu-btn" id="openBtn">Open
+                              <input type="file" class="videoInput" id="videoInput">
+                        </div>
+                  </div>
+                  <div class="menu">
+                        <div class="menu-btn">Playback</div>
+                        <ul class="menu-items">
+                              <li id="speedUp">Speed Up</li>
+                              <li id="speedDown">Speed Down</li>
+                        </ul>
+                   </div>
+                 <div class="menu">
+                        <div class="menu-btn">
+                              Audio
+                              <ul class="menu-items">
+                                    <li class="volumeUp">Volume up</li>
+                                    <li class="volumeDown">Volume down</li>
+                                    <li class="volumeMute">Mute</li>
+                              </ul>
+                        </div>
+                  </div>
+            </div>
+      </header>
+      <main class="main" id="main"></main>
+      <div class="toast"></div>
+      <footer class="footer">
+            <i class="fa-solid fa-play" id="play"></i>
+            <i class="fa-solid fa-pause" id="pause"></i>
+            <div class="Spaner" style="width: 50%;"></div>
+            <i class="fa-solid fa-volume-mute volumeMute"></i>
+            <i class="fa-solid fa-volume-low volumeDown"></i>
+            <i class="fa-solid fa-volume-high volumeUp"></i>
+            <i class="fa-solid fa-gear settings"></i>
+            <i class="fa-solid fa-expand " id="fullScreen"></i>
+      </footer>
+     
+</body>
+<script src="./js/script.js"></script>
+
+</html>
