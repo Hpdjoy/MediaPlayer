@@ -11,12 +11,14 @@ html{
       font-family: "M PLUS Rounded 1c", serif;
       background-color: #333;
 }
+body {
+      overflow: hidden; /* Hide scrollbars */
+    }
 
 header{
       
       color: white;
       height: 5rem;
-      ;
       
 }
 .titlebar{
@@ -27,7 +29,7 @@ header{
       gap:0.5rem;
 }
 .title-img{
-      height: 60%;
+      height: 100%;
       margin-left: 1rem;
 }
 .title{
@@ -78,7 +80,6 @@ li{
       background-color: black;
       height: calc(100vh - 8rem);
       /* outline: 2px solid red; */
-      margin: 1px;
       
 }
 .video{
@@ -107,10 +108,26 @@ li{
       height: 3rem;
       color: white;
       font-size: 1rem;
-      outline: 2px solid yellow;
+      /* outline: 2px solid yellow; */
+}
+i{
+      font-size: 1rem;
+      color: white;
+
 }
 i:active{
       height: 10px;
       width: auto;
-      
+      background-color: blue;  
+}
+#seekBar {
+      width: 100%;
+      margin-top: 10px;
+      cursor: pointer;  
+}
+#currentTime{
+      /* display: block; */
+      color: white;
+      font-size: 1rem;
+      width: 50px;
 }

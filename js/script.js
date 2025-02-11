@@ -8,9 +8,17 @@ const videoInput = document.querySelector('#videoInput');
 const videoPlayer = document.querySelector('#main');
 const toast = document.querySelector('.toast');
 const play = document.querySelector('#play');
-const pause = document.querySelector('#pause');
+// const pause = document.querySelector('#pause');
 const fullScreen = document.querySelector('#fullScreen');
-
+const seekBar = document.querySelector('#seekBar');
+const currentTimeDisplay = document.querySelector('#currentTime');
+const totalTimeDisplay = document.querySelector('#totalTime');
+const playPauseBtn = document.querySelector('.playPauseBtn');
+const seekbar = document.querySelector('#seekbar');
+const currentTime = document.querySelector('#currentTime');
+const totalTime = document.querySelector('#totalTime');
+const muteBtn = document.querySelector('#muteBtn');
+// const muteBtnBtm = document.querySelector('#muteBtnBtm');
 
 
 
@@ -37,8 +45,9 @@ const acceptInputHandeler = (obj) => {
     videoElement.play();
     videoPlayer.appendChild(videoElement);
     videoElement.controls = false;
-
-
+    videoElement.addEventListener("loadedmetadata", () => {
+        totalTimeDisplay.innerText = videoElement.duration.toFixed(2);
+    });
 }
 
 videoInput.addEventListener('change', acceptInputHandeler);
@@ -82,6 +91,8 @@ volumeMuteElement.addEventListener('click', () => {
     if (videoElement) {
         videoElement.muted = !videoElement.muted;
         console.log('Muted:', videoElement.muted);
+        muteBtn.innerText = videoElement.muted ? "Unmute" : "mute";
+
         showToast(videoElement.muted ? 'Muted' : 'Unmuted');
     } else {
         console.log('No video element found');
@@ -129,36 +140,89 @@ function showToast(message) {
 
 
 
-//Play and Pause
-play.addEventListener('click', () => {
+//Play and Pause old code...............................................
+// play.addEventListener('click', () => {
+//     const videoElement = document.querySelector('.main .video');
+//     if (videoElement !== null) {
+//         if(videoElement.paused){
+//         videoElement.play();
+//         console.log('Play was clicked!');
+//         } else {
+//             videoElement.pause();
+//             console.log('Pause was clicked!');
+//         }
+//     } else {
+//         console.log('No video element found');
+//     }
+// });
+
+// pause.addEventListener('click', () => {
+//     const videoElement = document.querySelector('.main .video');
+//     if (videoElement !== null) {
+//         videoElement.pause();
+//         console.log('Pause was clicked!');
+//     } else {
+//         console.log('No video element found');
+//     }
+// });
+
+
+const playPause = () => {
+
     const videoElement = document.querySelector('.main .video');
     if (videoElement !== null) {
         if(videoElement.paused){
         videoElement.play();
+        playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
         console.log('Play was clicked!');
         } else {
+            playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
             videoElement.pause();
             console.log('Pause was clicked!');
         }
     } else {
         console.log('No video element found');
     }
-});
-
-pause.addEventListener('click', () => {
-    const videoElement = document.querySelector('.main .video');
-    if (videoElement !== null) {
-        videoElement.pause();
-        console.log('Pause was clicked!');
-    } else {
-        console.log('No video element found');
-    }
-});
-
-// Full Screen
+}
+const playPauseEvent = playPauseBtn.addEventListener('click',playPause);
+// FullScreen.................................................
 
 fullScreen.addEventListener('click', () => {
-    
         videoPlayer.requestFullscreen();
         console.log('Full Screen was clicked!');
 });
+
+// video Seeking..........................................
+
+// Video Seeking Functionality
+seekBar.addEventListener("input", () => {
+    const videoElement = document.querySelector('.main .video');
+    if (videoElement) {
+        videoElement.currentTime = seekBar.value*videoElement.duration/100;
+        currentTime.innerText= videoElement.currentTime.toFixed(2);
+    }else{
+        console.log('No video element found');
+    }
+});
+ 
+// document.addEventListener("timeupdate", () => {
+//     const videoElement = document.querySelector('.main .video');
+//     if (videoElement) {
+//         seekBar.value = videoElement.currentTime;
+//         currentTime.textContent = formatTime(videoElement.currentTime);
+//     }
+// });
+
+// // When video metadata loads, set max seek value and total time
+// document.addEventListener("loadedmetadata", () => {
+//     const videoElement = document.querySelector('.main .video');
+//     if (videoElement) {
+//         seekBar.max = videoElement.duration;
+//         totalTime.textContent = formatTime(videoElement.duration);
+//     }
+// });
+// function formatTime(seconds) {
+//     const mins = Math.floor(seconds / 60);
+//     const secs = Math.floor(seconds % 60);
+//     return `${mins}:${secs < 10 ? "0" : ""}${secs}`;
+// }
